@@ -15,12 +15,12 @@ Comment3 "Adam Claassen"
 Comment4 ""
 $EndDescr
 $Comp
-L teensy:TEENSY32 U3
+L comms_board_v1-rescue:TEENSY32-teensy U3
 U 1 1 5C6B2853
 P 2550 5600
 F 0 "U3" H 2550 5850 60  0000 C CNN
 F 1 "TEENSY32" H 2550 5750 60  0000 C CNN
-F 2 "teensy:Teensy32" H 2550 5900 60  0001 C CNN
+F 2 "Custom Components:Teensy32" H 2550 5900 60  0001 C CNN
 F 3 "" H 2550 5900 60  0000 C CNN
 	1    2550 5600
 	1    0    0    -1  
@@ -70,7 +70,7 @@ Wire Wire Line
 	3300 7000 3300 7100
 Connection ~ 3300 7100
 $Comp
-L all:+3.3V #PWR0102
+L comms_board_v1-rescue:+3.3V-all #PWR0102
 U 1 1 5C6B4EFD
 P 1700 5400
 F 0 "#PWR0102" H 1700 5250 50  0001 C CNN
@@ -157,7 +157,7 @@ $EndComp
 Wire Wire Line
 	2350 1900 2350 1600
 $Comp
-L all:+3.3V #PWR0106
+L comms_board_v1-rescue:+3.3V-all #PWR0106
 U 1 1 5C6B5A8E
 P 3650 950
 F 0 "#PWR0106" H 3650 800 50  0001 C CNN
@@ -171,65 +171,31 @@ Wire Wire Line
 	3650 950  3650 1150
 Connection ~ 3650 1150
 $Comp
-L Connector_Generic:Conn_02x05_Counter_Clockwise J1
-U 1 1 5C6B6109
-P 9700 1350
-F 0 "J1" H 9750 1767 50  0000 C CNN
-F 1 "Conn_02x05_Counter_Clockwise" H 9750 1676 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 9700 1350 50  0001 C CNN
-F 3 "~" H 9700 1350 50  0001 C CNN
-	1    9700 1350
-	1    0    0    -1  
-$EndComp
-$Comp
-L all:+3.3V #PWR0107
+L comms_board_v1-rescue:+3.3V-all #PWR0107
 U 1 1 5C6B6282
-P 8850 900
-F 0 "#PWR0107" H 8850 750 50  0001 C CNN
-F 1 "+3.3V" H 8865 1073 50  0000 C CNN
-F 2 "" H 8850 900 50  0001 C CNN
-F 3 "" H 8850 900 50  0001 C CNN
-	1    8850 900 
+P 8900 950
+F 0 "#PWR0107" H 8900 800 50  0001 C CNN
+F 1 "+3.3V" H 8915 1123 50  0000 C CNN
+F 2 "" H 8900 950 50  0001 C CNN
+F 3 "" H 8900 950 50  0001 C CNN
+	1    8900 950 
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8850 900  8850 1150
-Wire Wire Line
-	8850 1150 9500 1150
-$Comp
-L power:+12V #PWR0108
-U 1 1 5C6B641D
-P 8350 900
-F 0 "#PWR0108" H 8350 750 50  0001 C CNN
-F 1 "+12V" H 8365 1073 50  0000 C CNN
-F 2 "" H 8350 900 50  0001 C CNN
-F 3 "" H 8350 900 50  0001 C CNN
-	1    8350 900 
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8350 900  8350 1350
-Wire Wire Line
-	8350 1350 9500 1350
-Wire Wire Line
-	9050 1450 9500 1450
-Text Label 9050 1250 0    50   ~ 0
+Text Label 9050 1350 0    50   ~ 0
 1WIRE_LED
 Text Label 9050 1450 0    50   ~ 0
-IR_CTRL
-Text Label 9050 1550 0    50   ~ 0
 UV_CTRL
-Wire Wire Line
-	9050 1550 9500 1550
+Text Label 9050 1550 0    50   ~ 0
+IR_CTRL
 $Comp
 L power:GND #PWR0109
 U 1 1 5C6B7231
-P 10150 1700
-F 0 "#PWR0109" H 10150 1450 50  0001 C CNN
-F 1 "GND" H 10155 1527 50  0000 C CNN
-F 2 "" H 10150 1700 50  0001 C CNN
-F 3 "" H 10150 1700 50  0001 C CNN
-	1    10150 1700
+P 10600 1400
+F 0 "#PWR0109" H 10600 1150 50  0001 C CNN
+F 1 "GND" H 10605 1227 50  0000 C CNN
+F 2 "" H 10600 1400 50  0001 C CNN
+F 3 "" H 10600 1400 50  0001 C CNN
+	1    10600 1400
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -241,21 +207,8 @@ Wire Wire Line
 Wire Wire Line
 	10000 1350 10150 1350
 Wire Wire Line
-	10000 1450 10150 1450
-Wire Wire Line
-	10000 1550 10150 1550
-Wire Wire Line
 	10150 1250 10150 1350
 Connection ~ 10150 1250
-Connection ~ 10150 1350
-Wire Wire Line
-	10150 1350 10150 1450
-Connection ~ 10150 1450
-Wire Wire Line
-	10150 1450 10150 1550
-Connection ~ 10150 1550
-Wire Wire Line
-	10150 1550 10150 1700
 Text Label 7200 2600 0    50   ~ 0
 ESP_TX
 Wire Wire Line
@@ -265,7 +218,7 @@ ESP_RX
 Wire Wire Line
 	7200 2800 7050 2800
 $Comp
-L all:+3.3V #PWR0110
+L comms_board_v1-rescue:+3.3V-all #PWR0110
 U 1 1 5C6B8324
 P 6450 2050
 F 0 "#PWR0110" H 6450 1900 50  0001 C CNN
@@ -321,7 +274,7 @@ U 1 1 5C6BA12F
 P 5050 2500
 F 0 "SW1" H 5050 2785 50  0000 C CNN
 F 1 "SW_Push" H 5050 2694 50  0000 C CNN
-F 2 "Work:CnK_PTS645_SMD" H 5050 2700 50  0001 C CNN
+F 2 "Custom Components:CnK_PTS645_SMD" H 5050 2700 50  0001 C CNN
 F 3 "" H 5050 2700 50  0001 C CNN
 	1    5050 2500
 	1    0    0    -1  
@@ -349,7 +302,7 @@ Connection ~ 5550 2500
 Wire Wire Line
 	5550 2500 5850 2500
 $Comp
-L all:+3.3V #PWR0114
+L comms_board_v1-rescue:+3.3V-all #PWR0114
 U 1 1 5C6BB7CB
 P 5550 1800
 F 0 "#PWR0114" H 5550 1650 50  0001 C CNN
@@ -433,7 +386,7 @@ Wire Wire Line
 Wire Wire Line
 	1450 6200 1950 6200
 $Comp
-L all:+3.3V #PWR0115
+L comms_board_v1-rescue:+3.3V-all #PWR0115
 U 1 1 5C6C1844
 P 9450 2450
 F 0 "#PWR0115" H 9450 2300 50  0001 C CNN
@@ -482,7 +435,7 @@ Wire Wire Line
 Wire Wire Line
 	9450 2850 9600 2850
 $Comp
-L all:+3.3V #PWR0117
+L comms_board_v1-rescue:+3.3V-all #PWR0117
 U 1 1 5C6C6D39
 P 9000 3500
 F 0 "#PWR0117" H 9000 3350 50  0001 C CNN
@@ -510,7 +463,7 @@ Wire Wire Line
 Wire Wire Line
 	9450 4250 9600 4250
 $Comp
-L all:+3.3V #PWR0119
+L comms_board_v1-rescue:+3.3V-all #PWR0119
 U 1 1 5C6C7AA7
 P 9450 4950
 F 0 "#PWR0119" H 9450 4800 50  0001 C CNN
@@ -657,23 +610,14 @@ Wire Wire Line
 $Comp
 L Device:R R1
 U 1 1 5C7030BA
-P 8650 1150
-F 0 "R1" V 8443 1150 50  0000 C CNN
-F 1 "4.7k" V 8534 1150 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 8580 1150 50  0001 C CNN
-F 3 "~" H 8650 1150 50  0001 C CNN
-	1    8650 1150
-	0    1    1    0   
+P 8900 1150
+F 0 "R1" V 8693 1150 50  0000 C CNN
+F 1 "4.7k" V 8784 1150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 8830 1150 50  0001 C CNN
+F 3 "~" H 8900 1150 50  0001 C CNN
+	1    8900 1150
+	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	8850 1150 8800 1150
-Connection ~ 8850 1150
-Wire Wire Line
-	8500 1150 8450 1150
-Wire Wire Line
-	8450 1150 8450 1250
-Wire Wire Line
-	8450 1250 9500 1250
 Wire Wire Line
 	9000 4050 9600 4050
 Wire Wire Line
@@ -717,7 +661,7 @@ F 3 "~" H 2250 3250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L all:+3.3V #PWR0123
+L comms_board_v1-rescue:+3.3V-all #PWR0123
 U 1 1 5C727BCD
 P 2250 2850
 F 0 "#PWR0123" H 2250 2700 50  0001 C CNN
@@ -779,7 +723,7 @@ F 3 "~" H 7750 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L all:+3.3V #PWR0125
+L comms_board_v1-rescue:+3.3V-all #PWR0125
 U 1 1 5C73CE05
 P 7750 2050
 F 0 "#PWR0125" H 7750 1900 50  0001 C CNN
@@ -862,7 +806,7 @@ $EndComp
 Wire Wire Line
 	1200 2700 1200 2850
 $Comp
-L all:+3.3V #PWR0130
+L comms_board_v1-rescue:+3.3V-all #PWR0130
 U 1 1 5C757EAD
 P 1700 2700
 F 0 "#PWR0130" H 1700 2550 50  0001 C CNN
@@ -1041,7 +985,7 @@ Wire Wire Line
 Wire Wire Line
 	8750 2750 9600 2750
 $Comp
-L all:+3.3V #PWR0121
+L comms_board_v1-rescue:+3.3V-all #PWR0121
 U 1 1 5C818F24
 P 8750 2050
 F 0 "#PWR0121" H 8750 1900 50  0001 C CNN
@@ -1054,7 +998,7 @@ $EndComp
 Wire Wire Line
 	8750 2050 8750 2250
 $Comp
-L all:+3.3V #PWR0132
+L comms_board_v1-rescue:+3.3V-all #PWR0132
 U 1 1 5C81E22F
 P 9050 2050
 F 0 "#PWR0132" H 9050 1900 50  0001 C CNN
@@ -1088,4 +1032,78 @@ F 3 "~" H 5500 6250 50  0001 C CNN
 	1    5500 6250
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector_Generic:Conn_02x05_Odd_Even J1
+U 1 1 5C80AD00
+P 9800 1350
+F 0 "J1" H 9850 925 50  0000 C CNN
+F 1 "Conn_02x05_Odd_Even" H 9850 1016 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 9800 1350 50  0001 C CNN
+F 3 "~" H 9800 1350 50  0001 C CNN
+	1    9800 1350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9050 1450 9500 1450
+Wire Wire Line
+	9050 1550 9500 1550
+Wire Wire Line
+	8900 1000 8900 950 
+Wire Wire Line
+	9500 1150 9450 1150
+Wire Wire Line
+	9450 1150 9450 1050
+Wire Wire Line
+	9450 1050 10150 1050
+Wire Wire Line
+	10150 1050 10150 1150
+Connection ~ 10150 1150
+Connection ~ 10150 1350
+$Comp
+L comms_board_v1-rescue:+3.3V-all #PWR0108
+U 1 1 5C831D6E
+P 10400 1600
+F 0 "#PWR0108" H 10400 1450 50  0001 C CNN
+F 1 "+3.3V" H 10415 1773 50  0000 C CNN
+F 2 "" H 10400 1600 50  0001 C CNN
+F 3 "" H 10400 1600 50  0001 C CNN
+	1    10400 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR0133
+U 1 1 5C831DB5
+P 10150 1600
+F 0 "#PWR0133" H 10150 1450 50  0001 C CNN
+F 1 "+12V" H 10165 1773 50  0000 C CNN
+F 2 "" H 10150 1600 50  0001 C CNN
+F 3 "" H 10150 1600 50  0001 C CNN
+	1    10150 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10150 1350 10600 1350
+Wire Wire Line
+	10600 1350 10600 1400
+Wire Wire Line
+	10150 1600 10050 1600
+Wire Wire Line
+	10050 1600 10050 1450
+Wire Wire Line
+	10050 1450 10000 1450
+Wire Wire Line
+	10400 1600 10400 1650
+Wire Wire Line
+	10400 1650 10000 1650
+Wire Wire Line
+	10000 1650 10000 1550
+Wire Wire Line
+	8900 1300 8900 1350
+Wire Wire Line
+	8900 1350 9500 1350
+Wire Wire Line
+	9500 1250 9450 1250
+Wire Wire Line
+	9450 1250 9450 1150
+Connection ~ 9450 1150
 $EndSCHEMATC
