@@ -1238,8 +1238,9 @@ F 3 "~" H 5500 9000 50  0001 C CNN
 	1    5500 9000
 	1    0    0    -1  
 $EndComp
-Text Label 1450 7000 0    50   ~ 0
+Text Label 3350 6600 0    50   ~ 0
 PUMP
 Wire Wire Line
-	1450 7000 1950 7000
+	3350 6600 3150 6600
+NoConn ~ 1950 7000
 $EndSCHEMATC
