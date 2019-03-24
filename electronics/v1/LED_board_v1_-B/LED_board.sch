@@ -476,21 +476,12 @@ Wire Wire Line
 Wire Wire Line
 	9050 1750 9050 1000
 Wire Wire Line
-	9900 1850 9650 1850
-Wire Wire Line
 	10400 1550 10550 1550
 Wire Wire Line
 	10550 1550 10550 1650
 Wire Wire Line
-	10400 1950 10550 1950
-Connection ~ 10550 1950
-Wire Wire Line
-	10550 1950 10550 2150
-Wire Wire Line
 	10400 1850 10550 1850
 Connection ~ 10550 1850
-Wire Wire Line
-	10550 1850 10550 1950
 Wire Wire Line
 	10400 1750 10550 1750
 Connection ~ 10550 1750
@@ -606,7 +597,7 @@ F 3 "" H 9450 1000 50  0001 C CNN
 	1    9450 1000
 	1    0    0    -1  
 $EndComp
-Text Label 9600 1850 0    50   ~ 0
+Text Label 9650 1650 2    50   ~ 0
 IR_CTRL
 Text Label 9850 2100 0    50   ~ 0
 UV_CTRL
@@ -1646,28 +1637,18 @@ Text GLabel 9850 4600 3    59   Input ~ 0
 1WIRE_LED
 Text GLabel 9850 5800 3    59   Input ~ 0
 1WIRE_LED
-Wire Wire Line
-	9900 1950 9850 1950
-Wire Wire Line
-	9850 1950 9850 2100
 Text GLabel 9850 2100 3    59   Input ~ 0
 UV_CTRL
-Wire Wire Line
-	9650 1850 9650 2100
 Text GLabel 9650 2100 3    59   Input ~ 0
 IR_CTRL
 Text GLabel 9250 1150 1    59   Input ~ 0
 1WIRE_LED
 Wire Wire Line
 	9050 1750 9900 1750
-Wire Wire Line
-	9250 1650 9900 1650
 Text Label 4450 4650 0    50   ~ 0
 LED_UV
 Text Label 9100 600  0    50   ~ 0
 1WIRE_LED
-Wire Wire Line
-	9250 1150 9250 1650
 Wire Wire Line
 	9450 1000 9450 1550
 Wire Wire Line
@@ -1764,4 +1745,29 @@ F 3 "~" H 1850 7300 50  0001 C CNN
 	1    1850 7300
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	9650 1650 9650 2100
+Wire Wire Line
+	9650 1650 9900 1650
+Wire Wire Line
+	9850 1850 9900 1850
+Wire Wire Line
+	9850 1850 9850 2100
+Wire Wire Line
+	10550 1850 10550 2050
+Wire Wire Line
+	9250 2250 10450 2250
+Wire Wire Line
+	10450 2250 10450 1950
+Wire Wire Line
+	10450 1950 10400 1950
+Wire Wire Line
+	9250 1150 9250 2250
+Wire Wire Line
+	9900 1950 9900 2050
+Wire Wire Line
+	9900 2050 10550 2050
+Connection ~ 10550 2050
+Wire Wire Line
+	10550 2050 10550 2150
 $EndSCHEMATC
