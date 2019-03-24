@@ -2,7 +2,7 @@ EESchema Schematic File Version 4
 LIBS:comms_board_v1-cache
 EELAYER 26 0
 EELAYER END
-$Descr A4 11693 8268
+$Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
 Title "Planter Sensor/Comms"
@@ -1106,4 +1106,136 @@ Wire Wire Line
 Wire Wire Line
 	9450 1250 9450 1150
 Connection ~ 9450 1150
+Text Notes 7350 8200 0    50   ~ 0
+PUMP\n
+$Comp
+L Connector_Generic:Conn_01x04 J7
+U 1 1 5C9862E6
+P 6700 8050
+F 0 "J7" H 6780 8042 50  0000 L CNN
+F 1 "Conn_01x04" H 6780 7951 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 6700 8050 50  0001 C CNN
+F 3 "~" H 6700 8050 50  0001 C CNN
+	1    6700 8050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR04
+U 1 1 5C9862ED
+P 6350 8350
+F 0 "#PWR04" H 6350 8100 50  0001 C CNN
+F 1 "GND" H 6355 8177 50  0000 C CNN
+F 2 "" H 6350 8350 50  0001 C CNN
+F 3 "" H 6350 8350 50  0001 C CNN
+	1    6350 8350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 8350 6350 8250
+Wire Wire Line
+	6350 8250 6500 8250
+NoConn ~ 6500 8050
+NoConn ~ 6500 8150
+Wire Wire Line
+	5800 7950 6500 7950
+$Comp
+L power:+12V #PWR03
+U 1 1 5C9862F8
+P 5100 7800
+F 0 "#PWR03" H 5100 7650 50  0001 C CNN
+F 1 "+12V" H 5115 7973 50  0000 C CNN
+F 2 "" H 5100 7800 50  0001 C CNN
+F 3 "" H 5100 7800 50  0001 C CNN
+	1    5100 7800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 7800 5100 7950
+Wire Wire Line
+	5100 7950 5400 7950
+$Comp
+L Device:R R10
+U 1 1 5C986300
+P 5100 8250
+F 0 "R10" H 5170 8296 50  0000 L CNN
+F 1 "10k" H 5170 8205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5030 8250 50  0001 C CNN
+F 3 "~" H 5100 8250 50  0001 C CNN
+	1    5100 8250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 8100 5100 7950
+Connection ~ 5100 7950
+Wire Wire Line
+	5100 8400 5100 8550
+Wire Wire Line
+	5100 8550 5600 8550
+Wire Wire Line
+	5600 8550 5600 8250
+Wire Wire Line
+	5600 8800 5600 8550
+Connection ~ 5600 8550
+$Comp
+L power:GND #PWR05
+U 1 1 5C98630E
+P 5600 9700
+F 0 "#PWR05" H 5600 9450 50  0001 C CNN
+F 1 "GND" H 5605 9527 50  0000 C CNN
+F 2 "" H 5600 9700 50  0001 C CNN
+F 3 "" H 5600 9700 50  0001 C CNN
+	1    5600 9700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R11
+U 1 1 5C986314
+P 5100 9350
+F 0 "R11" H 5170 9396 50  0000 L CNN
+F 1 "10k" H 5170 9305 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5030 9350 50  0001 C CNN
+F 3 "~" H 5100 9350 50  0001 C CNN
+	1    5100 9350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 9700 5600 9600
+Wire Wire Line
+	5600 9600 5100 9600
+Wire Wire Line
+	5100 9600 5100 9500
+Wire Wire Line
+	5600 9600 5600 9200
+Connection ~ 5600 9600
+Wire Wire Line
+	5100 9200 5100 9000
+Wire Wire Line
+	5100 9000 5300 9000
+Text Label 4850 9000 0    50   ~ 0
+FAN
+Wire Wire Line
+	4850 9000 5100 9000
+Connection ~ 5100 9000
+$Comp
+L Device:Q_PMOS_GSD Q3
+U 1 1 5C986325
+P 5600 8050
+F 0 "Q3" V 5943 8050 50  0000 C CNN
+F 1 "Q_PMOS_GSD" V 5852 8050 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 5800 8150 50  0001 C CNN
+F 3 "~" H 5600 8050 50  0001 C CNN
+	1    5600 8050
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:Q_NMOS_GSD Q4
+U 1 1 5C98632C
+P 5500 9000
+F 0 "Q4" H 5705 9046 50  0000 L CNN
+F 1 "Q_NMOS_GSD" H 5705 8955 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-416" H 5700 9100 50  0001 C CNN
+F 3 "~" H 5500 9000 50  0001 C CNN
+	1    5500 9000
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
