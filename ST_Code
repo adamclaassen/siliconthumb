@@ -1,0 +1,92 @@
+  //Initializes all the pins to their locations, currently
+  //I am looking at diagram and will need to talk to Adam
+  int moisturePin = ;
+  int humidityPin = ;
+  int tempPin = ;
+  int waterPin = ;
+  int fanPin = 11;
+  int irLightPin = 22;
+  int uvLightPin = 23;
+  int waterThreshold = ;
+  int uvTimer = 0;
+  int irTimer = 0;
+  int uvIntervalOff = ; //when we learn what we need for our timers
+  int irIntervalOff = ;
+  int uvIntervalOff = ;
+  int irIntervalOff = ;
+  int humidity;
+  int temperature;
+  int uvHolder;
+  int irHolder;
+
+  #include <LiquidCrystal.h> //Import LCD Library 
+LiquidCrystal LcdDriver(12, 11, 5, 6, 7, 8); //Sets the LCD pins
+  
+void setup() {
+  pinMode(moisturePin, INPUT);
+  pinMode(humidityPin, INPUT);
+  pinMode(tempPin, INPUT);
+  pinMode(waterPin, OUTPUT);
+  pinMode(irLightPin, OUTPUT);
+  pinMode(uvLightPin, OUTPUT);
+  Serial.begin(9600);
+
+  LcdDriver.clear();
+  LcdDriver.print('0');
+}
+
+void loop() {
+  unsigned long totalMillis = millis();
+  if(digitalRead(moisturePin) <= waterThreshold)) //Compares current moisture to wanted moisture
+  {
+    LcdDriver.clear();
+    LcdDriver.print("Watering");
+    digitalWrite(waterPin, HIGH);
+  }
+  else
+  {
+    digitalWrite(waterPin, LOW);
+    LcdDriver.clear();
+  }
+  if(totalMillis - uvTimer > uvIntervalOff && uvHolder == 0)
+  {
+    //a = ardunio();
+    uvTimer = totalMillis;
+      digitalWrite(uvLightPin, HIGH);
+      //altenatiely writeDigitalPin(a, uvLightPin, 1); //This may be better, but I am still looking more into it
+      uvHolder = 1;
+  }
+  if(totalMillis - uvTimer >= uvIntervalOn && uvHolder == 1)
+  {
+    digitalWrite(uvLightPin, LOW);
+    //writeDigitalPin(a, uvLightPin, 0;
+    //clear a;
+    uvHolder = 0;
+  }
+    if(totalMillis - irTimer > irIntervalOff && irHolder == 0)
+  {
+    irTimer = totalMillis;
+    irHolder = 1;
+      digitalWrite(irLightPin, HIGH);
+  }
+  if(totalMillis - irTimer >= irIntervalOn && irHolder == 1)
+  {
+    digitalWrite(irLightPin, LOW);
+    irHolder = 0;
+  }
+  humidity = digitalRead(humidityPin);
+  temperature = digitalRead(tempPin);
+  if(temperature >= tempThreshold)
+  {
+    digitalWrite(fanPin, HIGH);
+  }
+  else
+  {
+    digitalWrite(fanPin, LOW);
+  }
+  LcdDriver.clear();
+  LcdDriver.print(" Humidity: %s\nTemperature: %s",humidity, temperature); 
+//I am assuming that our LCD screen will work with the 
+//241 libraries LCD library since I am writing this while flying
+//this probably needs revisited, but should be an easy fix if needed
+}
