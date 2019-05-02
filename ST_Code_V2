@@ -1,0 +1,62 @@
+#include <SoftwareSerial.h>
+#define RX 1
+#define TX 0
+#define irLightPin 20
+#define uvLightPin 21
+#define soilPinSCL 19
+#define soilPinSDA 18
+#define fanPin 9
+#define waterPin 13
+#define tempPin 8 
+
+int intervalOn =  57600000;
+int intervalOff = 28800000;
+int waterOn = 86400000;
+int lightTimer = 0;
+int lightHolder = 0;
+int waterTimer = 0;
+int waterThreshold = 1000;
+int fanTimer;
+int fanOn;
+int fanInterval = 60000;
+
+void setup() {
+Serial.begin(9600);  
+analogWrite(irLightPin, 66);
+analogWrite(uvLightPin, 66);
+}
+
+void loop() {
+  unsigned long totalMillis = millis();
+  if(totalMillis - lightTimer > intervalOn && lightHolder == 0) //plants need 16 hours of light a day
+  {
+    lightTimer = totalMillis;
+    analogWrite(irLightPin, 0);
+    analogWrite(uvLightPin, 0);
+    lightHolder = 1;
+  }
+    if(totalMillis - lightTimer > intervalOff && lightHolder == 1) //plants need 8 hours of dark a day
+  {
+    lightTimer = totalMillis;
+    analogWrite(irLightPin, 66);
+    analogWrite(uvLightPin, 66);
+    lightHolder = 0;
+  }
+  if(totalMillis - waterTimer > waterOn) //Watering the plant everyday
+  {
+    while(digitalRead(soilPinSCL) <= waterThreshold) //Water the plant while the soil moisture is below value
+    {
+      digitalWrite(waterPin, HIGH); 
+    }
+  }
+  if(digitalRead(tempPin) >= tempThreshold))
+  {
+    fanTimer = millis();
+    fanOn = millis();
+    digitalWrite(fanPin, HIGH)
+    while(fanOn - fanTimer <= fanInterval) 
+    {
+      fanOn = millis;
+    }
+  }
+}
