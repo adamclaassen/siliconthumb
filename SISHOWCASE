@@ -1,0 +1,90 @@
+#include "Adafruit_seesaw.h"
+
+Adafruit_seesaw ss;
+
+int intervalOff = 55000;
+int intervalOn = 5000;
+int intervalTimer = 0;
+int serialTimer = 0;
+int serialInterval = 1000;
+int pumpBool = 0;
+int value = 1;
+int light = 127;
+int lightTimer = 0;
+int lightInterval = 500;
+
+void setup() {
+  pinMode(9, OUTPUT);
+  pinMode(13, OUTPUT);
+  digitalWrite(9, HIGH);
+  digitalWrite(13, LOW);
+  analogWrite(20, light);
+  analogWrite(21, light);
+
+  Serial.begin(115200);
+
+  Serial.println("seesaw Soil Sensor example!");
+  
+  if (!ss.begin(0x36)) {
+    Serial.println("ERROR! seesaw not found");
+    while(1);
+  } else {
+    Serial.print("seesaw started! version: ");
+    Serial.println(ss.getVersion(), HEX);
+  }
+
+}
+
+void loop() {
+  unsigned long timer = millis();
+  float tempC = ss.getTemp();
+  uint16_t capread = ss.touchRead(0);
+  float soilMoisture = (capread - 200);
+  soilMoisture = soilMoisture/20;
+  float lightLevel = light/255.0;
+  lightLevel = lightLevel*100;
+  if(timer - serialTimer > serialInterval)
+  {
+  serialTimer = timer;
+  Serial.write(27);       // ESC command
+  Serial.print("[2J");    // clear screen command
+  Serial.write(27);
+  Serial.print("[H");     // cursor to home command
+  Serial.print("Temperature: "); Serial.print((int)tempC); Serial.println("*C");
+  Serial.print("Soil Moisture: "); Serial.print((int)soilMoisture); Serial.print("%"); Serial.print(" ("); Serial.print(capread); Serial.println(")");
+  Serial.print("Infared Light Level: "); Serial.print((int)lightLevel); Serial.println("%");
+  Serial.print("Ultraviolet Light Level: "); Serial.print((int)lightLevel); Serial.println("%");
+  
+
+  }
+  if(timer - intervalTimer > intervalOff && pumpBool == 0)
+  {
+   intervalTimer = timer;
+   if(capread<=1000)
+   {
+   pumpBool = 1;
+   digitalWrite(13, HIGH); 
+   }
+  }
+  if(timer - intervalTimer > intervalOn && pumpBool == 1)
+  {
+    intervalTimer = timer;
+    pumpBool = 0;
+    digitalWrite(13, LOW);
+  }
+  if(timer - lightTimer > lightInterval)
+  {
+    lightTimer = timer;
+    if(light >= 127)
+  {
+    value = -1;
+  }
+  if(light <= 0)
+  {
+    value = 1;
+  }
+  light = light + value;
+  analogWrite(20, light);
+  analogWrite(21, light);
+  }
+}
